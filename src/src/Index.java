@@ -5,6 +5,10 @@
  */
 package src;
 
+import javax.swing.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 /**
  *
  * @author edvin.bergstrom
@@ -17,7 +21,16 @@ public class Index extends javax.swing.JFrame {
      * Creates new form Index
      */
     public Index() {
+        ImageIcon splach = null;
+        try{
+            splach= new ImageIcon(new URL("https","s-media-cache-ak0.pinimg.com","/736x/c6/20/ca/c620caef7766c43a20b3ab81b2ebcbc0.jpg"));
+        }catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        this.setContentPane(new JLabel(splach));
+        setResizable(false);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -61,26 +74,26 @@ public class Index extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(pvEeasy)
+                .addGap(93, 93, 93)
+                .addComponent(pvEeasy, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addComponent(pvEhard)
-                .addGap(75, 75, 75))
+                .addComponent(pvEhard, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
             .addGroup(layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(pvp)
+                .addGap(261, 261, 261)
+                .addComponent(pvp, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
-                .addComponent(pvp)
-                .addGap(39, 39, 39)
+                .addContainerGap(132, Short.MAX_VALUE)
+                .addComponent(pvp, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pvEeasy)
-                    .addComponent(pvEhard))
-                .addGap(76, 76, 76))
+                    .addComponent(pvEeasy, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pvEhard, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69))
         );
 
         pack();

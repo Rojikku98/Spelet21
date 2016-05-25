@@ -5,6 +5,10 @@
  */
 package src;
 
+import javax.swing.*;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 /**
  *
  * @author edvin.bergstrom
@@ -15,7 +19,19 @@ public class PVP extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public PVP() {
+        ImageIcon splach = null;
+        try{
+            splach= new ImageIcon(new URL("https","s-media-cache-ak0.pinimg.com","/736x/c6/20/ca/c620caef7766c43a20b3ab81b2ebcbc0.jpg"));
+        }catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        this.setContentPane(new JLabel(splach));
+        setResizable(false);
+
         initComponents();
+        this.setLocationRelativeTo(null);
+        //start.setVisible(false);
+
     }
 
     /**
@@ -33,10 +49,12 @@ public class PVP extends javax.swing.JFrame {
         p2_1 = new javax.swing.JButton();
         total = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
+        start = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         p1_1.setText("+1");
+        p1_1.setEnabled(false);
         p1_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 p1_1ActionPerformed(evt);
@@ -44,6 +62,7 @@ public class PVP extends javax.swing.JFrame {
         });
 
         p1_2.setText("+2");
+        p1_2.setEnabled(false);
         p1_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 p1_2ActionPerformed(evt);
@@ -51,6 +70,7 @@ public class PVP extends javax.swing.JFrame {
         });
 
         p2_2.setText("+2");
+        p2_2.setEnabled(false);
         p2_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 p2_2ActionPerformed(evt);
@@ -58,16 +78,28 @@ public class PVP extends javax.swing.JFrame {
         });
 
         p2_1.setText("+1");
+        p2_1.setEnabled(false);
         p2_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 p2_1ActionPerformed(evt);
             }
         });
 
-        exit.setText("exit");
+        total.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        total.setForeground(new java.awt.Color(255, 255, 255));
+        total.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        exit.setText("Back");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
+            }
+        });
+
+        start.setText("Start");
+        start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startActionPerformed(evt);
             }
         });
 
@@ -75,63 +107,141 @@ public class PVP extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(p1_1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(p1_2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(p2_1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(p2_2)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
-                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(147, 147, 147))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(exit))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(p1_1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(p1_2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addComponent(p2_1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(p2_2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(238, 238, 238)
+                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(exit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
                 .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(p1_1)
-                    .addComponent(p1_2)
-                    .addComponent(p2_2)
-                    .addComponent(p2_1))
+                    .addComponent(p1_1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p1_2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p2_2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p2_1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(108, 108, 108))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    int toptaP;
+
     private void p1_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p1_1ActionPerformed
         // TODO add your handling code here:
-
+        toptaP++;
+        total.setText("Total :  "+toptaP);
+        if (toptaP>= 21){
+            total.setText("Vänster vann med " + toptaP + " poäng");
+            start.setVisible(true);
+            p1_1.setEnabled(false);
+            p1_2.setEnabled(false);
+            p2_2.setEnabled(false);
+            p2_1.setEnabled(false);
+            return;
+        }
+        p1_1.setEnabled(false);
+        p1_2.setEnabled(false);
+        p2_2.setEnabled(true);
+        p2_1.setEnabled(true);
 
     }//GEN-LAST:event_p1_1ActionPerformed
 
     private void p1_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p1_2ActionPerformed
         // TODO add your handling code here:
+        toptaP+=2;
+        total.setText("Total :  "+toptaP+"");
+        if (toptaP>= 21){
+            total.setText("Vänster vann med " + toptaP + " poäng");
+            start.setVisible(true);
+            p1_1.setEnabled(false);
+            p1_2.setEnabled(false);
+            p2_2.setEnabled(false);
+            p2_1.setEnabled(false);
+            return;
+        }
+        p1_1.setEnabled(false);
+        p1_2.setEnabled(false);
+        p2_2.setEnabled(true);
+        p2_1.setEnabled(true);
     }//GEN-LAST:event_p1_2ActionPerformed
 
     private void p2_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p2_1ActionPerformed
         // TODO add your handling code here:
+        toptaP++;
+        total.setText("Total :  "+toptaP+"");
+        if (toptaP>= 21){
+            total.setText("Höger vann med " + toptaP + " poäng");
+            start.setVisible(true);
+            p1_1.setEnabled(false);
+            p1_2.setEnabled(false);
+            p2_2.setEnabled(false);
+            p2_1.setEnabled(false);
+            return;
+        }
+        p1_1.setEnabled(true);
+        p1_2.setEnabled(true);
+        p2_2.setEnabled(false);
+        p2_1.setEnabled(false);
     }//GEN-LAST:event_p2_1ActionPerformed
 
     private void p2_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p2_2ActionPerformed
         // TODO add your handling code here:
+        toptaP+=2;
+        total.setText("Total :  "+toptaP+"");
+        if (toptaP>= 21){
+            total.setText("Höger vann med " + toptaP + " poäng");
+
+            p1_1.setEnabled(false);
+            p1_2.setEnabled(false);
+            p2_2.setEnabled(false);
+            p2_1.setEnabled(false);
+            start.setVisible(true);
+            return;
+        }
+        p1_1.setEnabled(true);
+        p1_2.setEnabled(true);
+        p2_2.setEnabled(false);
+        p2_1.setEnabled(false);
     }//GEN-LAST:event_p2_2ActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         // TODO add your handling code here:
+        Index.index.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_exitActionPerformed
+
+    private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
+        // TODO add your handling code here:
+        p1_1.setEnabled(true);
+        p1_2.setEnabled(true);
+        p2_2.setEnabled(true);
+        p2_1.setEnabled(true);
+        toptaP = 0;
+        total.setText("Total  :   " + toptaP);
+        start.setVisible(false);
+    }//GEN-LAST:event_startActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,6 +285,7 @@ public class PVP extends javax.swing.JFrame {
     private javax.swing.JButton p1_2;
     private javax.swing.JButton p2_1;
     private javax.swing.JButton p2_2;
+    private javax.swing.JToggleButton start;
     private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 }

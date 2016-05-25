@@ -5,6 +5,9 @@
  */
 package src;
 
+import javax.swing.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Random;
 
 /**
@@ -17,7 +20,17 @@ public class PVE extends javax.swing.JFrame {
      * Creates new form PVE
      */
     public PVE() {
+        ImageIcon splach = null;
+        try{
+            splach= new ImageIcon(new URL("https","s-media-cache-ak0.pinimg.com","/736x/c6/20/ca/c620caef7766c43a20b3ab81b2ebcbc0.jpg"));
+        }catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        this.setContentPane(new JLabel(splach));
+        setResizable(false);
+
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     static boolean easy;
@@ -41,66 +54,135 @@ public class PVE extends javax.swing.JFrame {
         total = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
         compAdd = new javax.swing.JLabel();
+        player = new javax.swing.JButton();
+        compS = new javax.swing.JButton();
+        display = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 0, 0));
 
+        p_1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         p_1.setText("+1");
+        p_1.setEnabled(false);
         p_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 p_1ActionPerformed(evt);
             }
         });
 
+        p_2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         p_2.setText("+2");
+        p_2.setEnabled(false);
         p_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 p_2ActionPerformed(evt);
             }
         });
 
-        exit.setText("exit");
+        comp.setBackground(new java.awt.Color(254, 254, 254));
+        comp.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        total.setBackground(new java.awt.Color(254, 254, 254));
+        total.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        total.setForeground(new java.awt.Color(255, 255, 255));
+        total.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        exit.setText("Back");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
             }
         });
 
+        compAdd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        compAdd.setForeground(new java.awt.Color(255, 255, 255));
+        compAdd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        player.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        player.setText("Player");
+        player.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerActionPerformed(evt);
+            }
+        });
+
+        compS.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        compS.setText("Comp");
+        compS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compSActionPerformed(evt);
+            }
+        });
+
+        display.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        display.setForeground(new java.awt.Color(255, 255, 255));
+        display.setText("Vem börjar");
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Comp : ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(p_1)
-                .addGap(18, 18, 18)
-                .addComponent(p_2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                .addComponent(comp, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(compAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(exit))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(106, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(81, 81, 81))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(player, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)))
+                .addComponent(compS, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(155, 155, 155))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(p_1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(p_2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(comp, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(compAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(exit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(comp, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(player, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(compS, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(compAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(p_1)
-                        .addComponent(p_2))
-                    .addComponent(compAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(107, 107, 107))
+                        .addComponent(p_1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(p_2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)))
+                .addGap(68, 68, 68)
+                .addComponent(comp, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -109,7 +191,7 @@ public class PVE extends javax.swing.JFrame {
     private void p_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p_1ActionPerformed
         // TODO add your handling code here:
         totalP++;
-        if (forst){
+        if (false){
             if (ra.nextBoolean()){
                 comp();
                 System.out.println("datorn börjar");
@@ -123,6 +205,10 @@ public class PVE extends javax.swing.JFrame {
             forst=true;
             p_1.setEnabled(false);
             p_2.setEnabled(false);
+            player.setEnabled(true);
+            compS.setEnabled(true);
+            display.setText("Vem börjar");
+            totalP=0;
             return;
         }
         comp();
@@ -131,6 +217,10 @@ public class PVE extends javax.swing.JFrame {
             total.setText("datorn vann   " + totalP);
             p_1.setEnabled(false);
             p_2.setEnabled(false);
+            player.setEnabled(true);
+            compS.setEnabled(true);
+            display.setText("Vem börjar");
+            totalP=0;
         }
 
     }//GEN-LAST:event_p_1ActionPerformed
@@ -143,7 +233,7 @@ public class PVE extends javax.swing.JFrame {
             } else if ((totalP + 2) % 3 == 0) {
                 compadd = 2;
             } else {
-                compadd= 1;
+                compadd = ra.nextInt(2)+1;
             }
             totalP += compadd;
         }
@@ -160,7 +250,7 @@ public class PVE extends javax.swing.JFrame {
     private void p_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p_2ActionPerformed
         // TODO add your handling code here:
 
-        if (forst){
+        if (false){
             if (ra.nextBoolean()){
                 comp();
 
@@ -179,6 +269,10 @@ public class PVE extends javax.swing.JFrame {
             forst=true;
             p_1.setEnabled(false);
             p_2.setEnabled(false);
+            player.setEnabled(true);
+            compS.setEnabled(true);
+            totalP=0;
+            display.setText("Vem börjar");
             return;
         }
         comp();
@@ -187,17 +281,46 @@ public class PVE extends javax.swing.JFrame {
             forst=true;
             p_1.setEnabled(false);
             p_2.setEnabled(false);
+            player.setEnabled(true);
+            compS.setEnabled(true);
+            totalP=0;
+            display.setText("Vem börjar");
         }
 
     }//GEN-LAST:event_p_2ActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         // TODO add your handling code here:
-        Index framePVE = new Index();
-        framePVE.setVisible(true);
-        pve.setVisible(false);
+
+        Index.index.setVisible(true);
+
+        this.setVisible(false);
+
+        p_1.setEnabled(false);
+        p_2.setEnabled(false);
+        display.setText("Vem börjar");
+        totalP=0;
 
     }//GEN-LAST:event_exitActionPerformed
+
+    private void playerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerActionPerformed
+        // TODO add your handling code here:
+        p_2.setEnabled(true);
+        p_1.setEnabled(true);
+        player.setEnabled(false);
+        compS.setEnabled(false);
+        display.setText("Total:");
+    }//GEN-LAST:event_playerActionPerformed
+
+    private void compSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compSActionPerformed
+        // TODO add your handling code here:
+        comp();
+        player.setEnabled(false);
+        compS.setEnabled(false);
+        p_2.setEnabled(true);
+        p_1.setEnabled(true);
+        display.setText("Total:");
+    }//GEN-LAST:event_compSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,9 +361,13 @@ public class PVE extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel comp;
     private javax.swing.JLabel compAdd;
+    private javax.swing.JButton compS;
+    private javax.swing.JLabel display;
     private javax.swing.JButton exit;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton p_1;
     private javax.swing.JButton p_2;
+    private javax.swing.JButton player;
     private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 }
